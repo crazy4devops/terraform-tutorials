@@ -1,6 +1,17 @@
 variable "ami" {
-  default = "ami-0c02fb55956c7d316"
+  default = ""
 }
 variable "instance_type" {
-   default = "t2.micro"
+  default = "t2.micro"
 }
+variable "profile" {
+  default = "default"
+}
+variable "region" {
+  default = "us-east-1"
+}
+variable "instance_keypair" {
+  default = "terraform-key"
+
+}
+
