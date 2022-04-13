@@ -16,20 +16,20 @@ variable "instance_keypair" {
 }
 variable "instance_type_list" {
   description = "instnace type is list"
-  type = list(string)
-  default = ["t3.micro","t3.small", "t3.large"]
+  type        = list(string)
+  default     = ["t3.micro", "t3.small", "t3.large"]
 }
 # var.instance_type_list[2]
 
 variable "instance_type_map" {
   description = "instance type is map"
-  type = map(string)
+  type        = map(string)
   default = {
-    "dev" = "t3.micro"
-    "qa" = "t3.small"
+    "dev"  = "t3.micro"
+    "qa"   = "t3.small"
     "prod" = "t3.large"
   }
-  
+
 }
 #var.instnace_type_map["prod"]
 
