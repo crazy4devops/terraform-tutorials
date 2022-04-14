@@ -3,20 +3,16 @@ resource "aws_instance" "dev-ec2" {
   #instance_type = var.instance_type
   instance_type = var.instance_type_list[0]
   #instance_type = var.instance_type_map["prod"]
-  user_data = file("${path.module}/install-web.sh")
-  key_name  = var.instance_keypair
-  count     = 3
+  user_data         = file("${path.module}/install-web.sh")
+  key_name          = var.instance_keypair
+  for_each          = toset(data.aws_availability_zones.my_azs.names)
+  availability_zone = each.key
   vpc_security_group_ids = [
     aws_security_group.ssh_sg.id,
     aws_security_group.web_sg.id
   ]
   tags = {
-    Name = "DemoWebApp-${count.index}"
+    Name = "DemoWebApp-${each.value}"
   }
 
 }
-#aws_instance.dev-ec2.0,1,2
-#count = 5
-#0,1,2,3,4
-#count = 2
-#0,1
