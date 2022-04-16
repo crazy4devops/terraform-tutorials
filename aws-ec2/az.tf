@@ -4,4 +4,3 @@ data "aws_availability_zones" "my_azs" {
     values = ["opt-in-not-required"]
   }
 }
-#data.aws_availability_zones.my_azs.names

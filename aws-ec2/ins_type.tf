@@ -14,7 +14,7 @@ data "aws_ec2_instance_type_offerings" "instance_type_offering" {
 }
 
 output "get_instance_location" {
-    description = "check ec2 type offerings"
-    value = data.aws_ec2_instance_type_offerings.instance_type_offering.locations
-  
+  description = "check ec2 type offerings"
+  value       = data.aws_ec2_instance_type_offerings.instance_type_offering.locations
+
 }

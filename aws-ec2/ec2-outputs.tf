@@ -13,18 +13,18 @@
 
 output "instance_publicip" {
   description = "get all public IP's"
-  value       = toset([ for instance in aws_instance.dev-ec2: instance.public_ip])
+  value       = toset([for instance in aws_instance.dev-ec2 : instance.public_ip])
 
 }
 
 output "instance_publicdns" {
   description = "get all public DNS"
-  value       = toset ([ for instance in aws_instance.dev-ec2: instance.public_dns])
+  value       = toset([for instance in aws_instance.dev-ec2 : instance.public_dns])
 
 }
 
 output "instance_publicdnsmap" {
 
-  value = { for az, instance in aws_instance.dev-ec2: az => instance.public_dns}
-  
+  value = { for az, instance in aws_instance.dev-ec2 : az => instance.public_dns }
+
 }

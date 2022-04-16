@@ -17,27 +17,27 @@ data "aws_ec2_instance_type_offerings" "ins_type3" {
 
 output "type_v3" {
   description = "check ec2 type"
-  value = { for type, t in data.aws_ec2_instance_type_offerings.ins_type3: type => t.instance_types}
-  
+  value       = { for type, t in data.aws_ec2_instance_type_offerings.ins_type3 : type => t.instance_types }
+
 }
 
 
 output "type_v4" {
   description = "check ec2 type"
-  value = { for type, t in data.aws_ec2_instance_type_offerings.ins_type3: 
-  type => t.instance_types if length(t.instance_types) != 0}
-  
+  value = { for type, t in data.aws_ec2_instance_type_offerings.ins_type3 :
+  type => t.instance_types if length(t.instance_types) != 0 }
+
 }
 output "type_v5" {
   description = "check ec2 type"
-  value = keys ({ for type, t in data.aws_ec2_instance_type_offerings.ins_type3: 
-  type => t.instance_types if length(t.instance_types) != 0})
-  
+  value = keys({ for type, t in data.aws_ec2_instance_type_offerings.ins_type3 :
+  type => t.instance_types if length(t.instance_types) != 0 })
+
 }
 
 output "type_v6" {
   description = "check ec2 type"
-  value = keys ({ for type, t in data.aws_ec2_instance_type_offerings.ins_type3: 
-  type => t.instance_types if length(t.instance_types) != 0})[0]
-  
+  value = keys({ for type, t in data.aws_ec2_instance_type_offerings.ins_type3 :
+  type => t.instance_types if length(t.instance_types) != 0 })[0]
+
 }
