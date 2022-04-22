@@ -11,7 +11,7 @@ variable "region" {
   default = "us-east-1"
 }
 variable "instance_keypair" {
-  default = "terraform-key"
+  default = "terraform-key2"
 
 }
 variable "instance_type_list" {
