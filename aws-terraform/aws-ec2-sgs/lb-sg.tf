@@ -19,6 +19,6 @@ module "lb_sg" {
       protocol    = 6
       description = "Allow 81 traffice from internet"
       cidr_blocks = "0.0.0.0/0"
-    },
+    }
   ]
 }
